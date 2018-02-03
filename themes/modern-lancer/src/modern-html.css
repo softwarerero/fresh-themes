@@ -19,6 +19,7 @@ body {
   color: #333;
   line-height: 1.42857143;
   background-color: #F0F0F0;
+  /*background-color: #FFF;*/
   margin: 0;
   padding: 0;
 }
@@ -31,10 +32,10 @@ body.pdf {
 /* Adobe or wkhtmltopdf has issues with the <main> tag, so we use <div> for
 the PDF case, <main> for the HTML case, and style both via an ID. */
 #main {
-  background-color: #FFF;
   margin: 10px;
   padding: 10px;
-  border: 1px solid #E6E6E6;
+  /*border: 1px solid #E6E6E6;*/
+  background-color: #F0F0F0;
 }
 
 body.pdf > #main {
@@ -48,7 +49,11 @@ body.pdf > #main {
 }
 
 #container #picture {
-  margin-top: 20px;
+  margin-top: 50px;
+}
+
+.profile-pic {
+  border-radius: 10%;
 }
 
 

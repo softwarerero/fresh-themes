@@ -3,10 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>{{ RAW.name }}</title>
-
     {{!<!-- TODO: Optimize Google Fonts and Font Awesome access. -->}}
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./fonts/font-awesome.min.css">
     {{{styleSheet "modern-html.css"}}}
   </head>
 
@@ -17,20 +15,21 @@
 
         <div class="left">
           <h1>{{{ r.name }}}</h1>
-  
+
           <div id="contact">
-            {{#if r.contact.email}}<div><span class="fa fa-lg fa-envelope"></span> <a href="mailto:{{{ RAW.contact.email }}}">{{ RAW.contact.email }}</a></div>{{/if}}
-            {{#if r.contact.website}}<div><span class="fa fa-lg fa-firefox"></span> <a href="{{{ RAW.contact.website }}}">{{ RAW.contact.website }}</a></div>{{/if}}
-            {{#if r.contact.phone}}<div><span class="fa fa-lg fa-phone"></span> {{ RAW.contact.phone }}</div>{{/if}}
-            {{#if r.contact.skype}}<div><span class="fa fa-lg fa-skype"></span> {{ RAW.contact.skype }}</div>{{/if}}
+            {{#if r.contact.email}} <div><span class="fa fa-lg fa-envelope"></span> Email: <a href="mailto:{{{ r.contact.email }}}">{{{ r.contact.email }}}</a></div>{{/if}}
+            {{#if r.contact.website}} <div><span class="fa fa-lg fa-firefox"></span> WWW: <a href="{{{ RAW.contact.website }}}">{{ RAW.contact.website }}</a></div>{{/if}}
+            {{#if r.contact.phone}}<div><span class="fa fa-lg fa-phone"></span> Phone: {{ RAW.contact.phone }}</div>{{/if}}
+            {{#if r.contact.skype}}<div><span class="fa fa-lg fa-skype"></span> Skype: {{ RAW.contact.skype }}</div>{{/if}}
+            {{#if r.contact.telegram}}<div><span class="fa fa-lg fa-telegram"></span> Telegram: {{ RAW.contact.telegram }}</div>{{/if}}
             {{#each r.social}}
             <div class="social">
-              <span class="fa fa-lg fa-{{toLower label}}"></span> <a href="{{url}}">{{url}}</a>
+              <span class="fa fa-lg fa-{{toLower label}}"></span> {{label}}: <a href="{{url}}">{{url}}</a>
             </div>
             {{/each}}
           </div>
         </div>
-        {{#if r.info.image}}<div id="picture" class="right"><img class="profile-pic media-object img-circle center-block" height="128" width="128" itemprop="image" alt="128x128" src="{{{ r.info.image }}}"></div>{{/if}}
+        {{#if r.info.image}}<div id="picture" class="right"><img class="profile-pic media-object img-circle center-block" width="128" itemprop="image" alt="128x128" src="{{{ r.info.image }}}"></div>{{/if}}
       </header>
 
 
@@ -94,7 +93,7 @@
 {{#*inline "header-employment" }}
   {{> header-icon _title="WORK" _section="work" _hdricon=(lookup . '_icon') }}
 {{/inline}}
-{{#*inline "body-employment" }} 
+{{#*inline "body-employment" }}
 <div>
   <h3><em>{{ position }}</em>,
     {{#if url }}
@@ -137,7 +136,7 @@
 {{> section/education _icon="icon-education"}}
 
 
-{{#if r.languages}}      
+{{#if r.languages}}
   <hr>
   <section id="languages">
     <header><span class="fa fa-lg fa-language"></span> <h2>Languages</h2></header>
